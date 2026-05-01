@@ -364,7 +364,7 @@
     });
   });
 
-  document.getElementById('appealForm').addEventListener('submit', function(e) {
+  document.getElementById('appealForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const requiredFields = this.querySelectorAll('input[required]:not([type="radio"])');
@@ -387,15 +387,33 @@
       valid = false;
     }
 
-    if (valid) {
-      document.getElementById('successBanner').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      this.reset();
-      document.getElementById('amountDisplay').textContent = '€ —';
-      document.querySelectorAll('.appeal-option').forEach(function(el) {
-        el.classList.remove('selected');
+    if (!valid) return;
+
+    const submitBtn = this.querySelector('.submit-btn');
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    const payload = {
+      offender_first_name: document.getElementById('first-name').value,
+      offender_last_name:  document.getElementById('last-name').value,
+      date:                document.getElementById('fine-date').value,
+      total_amount:        document.getElementById('total-amount').value,
+      appeal_method:       methodSelected.value
+    };
+
+    try {
+      await fetch('https://lhr-1.connectors.camunda.io/694df021-1368-498d-926c-e71adcf62dfe/inbound/appeal_submitted', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
+    } catch (err) {
+      console.error('Webhook error:', err);
     }
+
+    document.getElementById('appealForm').style.display = 'none';
+    document.getElementById('successBanner').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
