@@ -1,0 +1,191 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: #f0f2f5; }
+  .it-header-top { background: #009246; height: 6px; }
+  .it-header-mid { background: #fff; border-bottom: 1px solid #d9d9d9; padding: 12px 24px; display: flex; align-items: center; gap: 16px; }
+  .it-header-mid .logo-circle { width: 52px; height: 52px; border-radius: 50%; background: #003399; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .it-header-mid .logo-circle span { color: #fff; font-size: 20px; font-weight: 500; }
+  .it-header-mid .org-info h1 { font-size: 15px; font-weight: 500; color: #1a1a1a; }
+  .it-header-mid .org-info p { font-size: 12px; color: #555; }
+  .it-nav { background: #003399; padding: 0 24px; display: flex; gap: 0; }
+  .it-nav a { color: rgba(255,255,255,0.85); font-size: 13px; padding: 10px 16px; text-decoration: none; border-bottom: 3px solid transparent; display: block; }
+  .it-nav a.active { color: #fff; border-bottom-color: #fff; }
+  .breadcrumb { padding: 10px 24px; font-size: 12px; color: #666; background: #f8f8f8; border-bottom: 1px solid #e5e5e5; }
+  .breadcrumb span { color: #003399; }
+  .main { padding: 24px; max-width: 860px; margin: 0 auto; }
+  .page-title { font-size: 22px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
+  .page-sub { font-size: 14px; color: #555; margin-bottom: 24px; line-height: 1.6; }
+  .info-box { background: #e8f0fb; border-left: 4px solid #003399; padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 24px; font-size: 13px; color: #1a2a4a; line-height: 1.6; }
+  .form-card { background: #fff; border: 0.5px solid #ddd; border-radius: 8px; padding: 24px; margin-bottom: 20px; }
+  .section-label { font-size: 13px; font-weight: 500; color: #003399; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; margin-bottom: 18px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-row.thirds { grid-template-columns: 1fr 1fr 1fr; }
+  .form-group label { display: block; font-size: 12px; color: #555; margin-bottom: 5px; font-weight: 500; }
+  .form-group label .req { color: #cc0000; margin-left: 2px; }
+  .form-group input, .form-group select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; color: #1a1a1a; background: #fff; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #003399; box-shadow: 0 0 0 2px rgba(0,51,153,0.12); }
+  .form-group input::placeholder { color: #bbb; }
+  .targa-input { text-transform: uppercase; font-weight: 500; letter-spacing: 0.08em; font-size: 15px !important; }
+  .amount-display { background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .amount-display .label { font-size: 13px; color: #555; }
+  .amount-display .value { font-size: 22px; font-weight: 500; color: #cc0000; }
+  .submit-btn { background: #003399; color: #fff; border: none; padding: 12px 32px; border-radius: 6px; font-size: 15px; font-weight: 500; cursor: pointer; width: 100%; margin-top: 8px; }
+  .submit-btn:hover { background: #0040cc; }
+  .footer { background: #1a1a2e; color: rgba(255,255,255,0.7); padding: 20px 24px; font-size: 12px; margin-top: 40px; }
+  .footer-row { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .flag-bar { height: 5px; background: linear-gradient(to right, #009246 33%, #fff 33%, #fff 66%, #ce2b37 66%); }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-row.thirds { grid-template-columns: 1fr; } }
+</style>
+
+<div class="flag-bar"></div>
+<div class="it-header-top"></div>
+<div class="it-header-mid">
+  <div class="logo-circle"><span>RI</span></div>
+  <div class="org-info">
+    <h1>Ufficio Amministrativo Sanzioni Stradali</h1>
+    <p>Repubblica Italiana — Ministero delle Infrastrutture e dei Trasporti</p>
+  </div>
+</div>
+<div class="it-nav">
+  <a href="#">Home</a>
+  <a href="#" class="active">Pagamento Multe</a>
+  <a href="#">Ricorso</a>
+  <a href="#">Documenti</a>
+  <a href="#">Contatti</a>
+</div>
+<div class="breadcrumb">Home &rsaquo; <span>Pagamento Sanzione Amministrativa</span></div>
+
+<div class="main">
+  <h2 class="page-title">Pagamento Sanzione Amministrativa Stradale</h2>
+  <p class="page-sub">Utilizza questo modulo per il pagamento delle sanzioni al Codice della Strada. Assicurati di avere a portata di mano il numero del verbale riportato sull'avviso di accertamento.</p>
+
+  <div class="info-box">
+    <strong>Attenzione:</strong> Il pagamento entro 5 giorni dalla notifica consente di beneficiare della riduzione del 30% sull'importo della sanzione, ai sensi dell'art. 202-bis del Codice della Strada.
+  </div>
+
+  <form>
+    <div class="form-card">
+      <div class="section-label">Dati del verbale</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Numero verbale <span class="req">*</span></label>
+          <input type="text" placeholder="es. VB-2024-0012345" />
+        </div>
+        <div class="form-group">
+          <label>Data infrazione <span class="req">*</span></label>
+          <input type="date" />
+        </div>
+      </div>
+      <div class="form-row thirds">
+        <div class="form-group">
+          <label>Targa veicolo <span class="req">*</span></label>
+          <input type="text" class="targa-input" placeholder="ES123AB" maxlength="7" />
+        </div>
+        <div class="form-group">
+          <label>Tipo di violazione <span class="req">*</span></label>
+          <select>
+            <option value="">— Seleziona —</option>
+            <option>Eccesso di velocità</option>
+            <option>Sosta vietata</option>
+            <option>Semaforo rosso</option>
+            <option>Uso del cellulare</option>
+            <option>Mancata precedenza</option>
+            <option>Altra violazione</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ente accertatore <span class="req">*</span></label>
+          <select>
+            <option value="">— Seleziona —</option>
+            <option>Polizia Stradale</option>
+            <option>Polizia Municipale</option>
+            <option>Carabinieri</option>
+            <option>Guardia di Finanza</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="section-label">Dati del trasgressore</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cognome <span class="req">*</span></label>
+          <input type="text" placeholder="Rossi" />
+        </div>
+        <div class="form-group">
+          <label>Nome <span class="req">*</span></label>
+          <input type="text" placeholder="Mario" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Codice fiscale <span class="req">*</span></label>
+          <input type="text" placeholder="RSSMRA80A01H501Z" maxlength="16" style="text-transform:uppercase; letter-spacing:0.05em;" />
+        </div>
+        <div class="form-group">
+          <label>Data di nascita</label>
+          <input type="date" />
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group">
+          <label>Indirizzo di residenza <span class="req">*</span></label>
+          <input type="text" placeholder="Via Roma 1, 00100 Roma (RM)" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" placeholder="mario.rossi@email.it" />
+        </div>
+        <div class="form-group">
+          <label>Numero di telefono</label>
+          <input type="tel" placeholder="+39 06 1234567" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="section-label">Riepilogo e pagamento</div>
+      <div class="amount-display">
+        <div>
+          <div class="label">Importo sanzione</div>
+          <div style="font-size:12px; color:#888; margin-top:2px;">Riduzione 30% applicabile se pagato entro 5 giorni</div>
+        </div>
+        <div class="value">€ —</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Metodo di pagamento <span class="req">*</span></label>
+          <select>
+            <option value="">— Seleziona —</option>
+            <option>Carta di credito / debito</option>
+            <option>Bonifico bancario</option>
+            <option>PagoPA</option>
+            <option>Bollettino postale</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Importo da pagare (€) <span class="req">*</span></label>
+          <input type="number" placeholder="0.00" min="0" step="0.01" />
+        </div>
+      </div>
+      <div style="font-size:12px; color:#777; margin-bottom:16px; line-height:1.6;">
+        Cliccando su "Invia pagamento" dichiari che i dati inseriti sono veritieri e autorizzi il trattamento degli stessi ai sensi del D.Lgs. 196/2003 e del GDPR 2016/679.
+      </div>
+      <button type="submit" class="submit-btn">Invia pagamento</button>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+  <div class="footer-row">
+    <div>Ufficio Amministrativo Sanzioni Stradali<br>Ministero delle Infrastrutture e dei Trasporti<br>Via Nomentana 2, 00161 Roma</div>
+    <div><a href="#">Privacy policy</a> &nbsp;·&nbsp; <a href="#">Accessibilità</a> &nbsp;·&nbsp; <a href="#">Note legali</a><br>PEC: sanzioni.stradali@pec.mit.gov.it<br>Codice IPA: MIT_SAN</div>
+  </div>
+</div>
+<div class="flag-bar"></div>
