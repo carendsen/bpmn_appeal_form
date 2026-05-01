@@ -402,13 +402,18 @@
     };
 
     try {
-      await fetch('https://lhr-1.connectors.camunda.io/694df021-1368-498d-926c-e71adcf62dfe/inbound/appeal_submitted', {
+      const response = await fetch('https://lhr-1.connectors.camunda.io/694df021-1368-498d-926c-e71adcf62dfe/inbound/appeal_submitted', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      console.log('Webhook status:', response.status, response.statusText);
     } catch (err) {
       console.error('Webhook error:', err);
+      submitBtn.textContent = 'Submit appeal';
+      submitBtn.disabled = false;
+      alert('Something went wrong submitting your appeal. Please try again.\n\nError: ' + err.message);
+      return;
     }
 
     document.getElementById('appealForm').style.display = 'none';
