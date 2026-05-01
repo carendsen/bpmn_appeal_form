@@ -113,6 +113,16 @@
       box-shadow: 0 0 0 3px rgba(0,51,153,0.1);
     }
     .form-group input::placeholder { color: #bbb; }
+    .form-group input[readonly] {
+      background: #f0f0f0;
+      color: #555;
+      border-color: #e0e0e0;
+      cursor: default;
+    }
+    .form-group input[readonly]:focus {
+      border-color: #e0e0e0;
+      box-shadow: none;
+    }
 
     .amount-badge {
       display: inline-block;
@@ -256,18 +266,18 @@
       <div class="form-row">
         <div class="form-group">
           <label for="first-name">First name <span class="req">*</span></label>
-          <input type="text" id="first-name" name="offender_first_name" placeholder="First name" required />
+          <input type="text" id="first-name" name="offender_first_name" placeholder="First name" readonly required />
         </div>
         <div class="form-group">
           <label for="last-name">Last name <span class="req">*</span></label>
-          <input type="text" id="last-name" name="offender_last_name" placeholder="Last name" required />
+          <input type="text" id="last-name" name="offender_last_name" placeholder="Last name" readonly required />
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="fine-date">Date of violation <span class="req">*</span></label>
-          <input type="date" id="fine-date" name="date" required />
+          <input type="date" id="fine-date" name="date" readonly required />
         </div>
         <div class="form-group">
           <div class="amount-label">Total fine amount</div>
